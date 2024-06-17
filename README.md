@@ -33,6 +33,7 @@ This repository contains code for the publication "Title-placeholder" avilable a
 
 
 ## Folder Descriptions
+- **Stata**: Stata scripts.
 - **data**: Contains `pina_dataset.csv` and `covariates.csv` datasets.
 - **figures**: Stores generated figures.
 - **fits**: Includes `brms` fitting results.
