@@ -8,6 +8,10 @@ This repository contains code for the publication "Title-placeholder" avilable a
 .
 ├── PinA.Rproj
 ├── README.md
+├── Stata
+│   ├── GPAQ_code_for_github.do
+│   ├── IPAQ_code_for_github.do
+│   └── stata.md
 ├── data
 │   ├── covariates.csv
 │   ├── data.md
