@@ -4,7 +4,7 @@ library(ggpubr)
 library(here)
 library(data.table)
 library(sjPlot)
-#
+
 
 models = list(readRDS(here("fits/model_m.rds")),readRDS(here("fits/model_f.rds")))
 models_names = c("model_m","model_f")
@@ -140,7 +140,7 @@ covars[sex == 2]$upr = unlist(lapply(covars[sex == 2]$upr, function(x){min(1, x)
 #-----------------------------------------------------------------------------------------
 
 # use unadjusted data
-df = fread(here("data/6Feb2024/5a pina dataset no ipaq adjustment.csv"))
+df = fread(here("data/pina_dataset.csv"))
 head(df)
 
 df <- df %>% 

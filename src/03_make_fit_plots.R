@@ -5,14 +5,14 @@ library(here)
 library(ggforce)
 library(data.table)
 library(sjPlot)
-#
-
-models = list(readRDS(here("fits/m29_m.rds")),readRDS(here("fits/model_f.rds")))
-models_names = c("m29_m","m29_f")
 
 
-df = fread(here("data/6Feb2024/5a pina dataset no ipaq adjustment.csv"))
-covars = fread(here("data/6Feb2024/covariates 2024.2.6.csv"))
+models = list(readRDS(here("fits/model_m.rds")),readRDS(here("fits/model_f.rds")))
+models_names = c("model_m","model_f")
+
+
+df = fread(here("data/pina_dataset.csv"))
+covars = fread(here("data/covariates.csv"))
 
 df <- df %>% 
   mutate(ess = round(ess),
@@ -20,9 +20,8 @@ df <- df %>%
          failure_meet_recs_count = round(ess * fail_meet_recs),
          meet_recs = ess - failure_meet_recs_count,
          perurb = perurb/100,
-         #perurb = scale(perurb),
-         meanmalebmi_sc = scale(meanmalebmi),
-         meanfemalebmi_sc = scale(meanfemalebmi),
+         malebmi_sc = scale(malebmi),
+         femalebmi_sc = scale(femalebmi),
          year = (midyear - 2011)/10,
          regionname_china = ifelse(whoname == "China", "China", regionname),
          qcat = factor(questionnaire_cat,levels=c("GPAQ","IPAQ","other","Eurobarometer 2013-2022")),
@@ -34,12 +33,10 @@ df <- df %>%
 # plot coefficients and random effects
 #-----------------------------------------------
 
-#agecut = c(18.5,30,35,40,45,50,55,60,65,70,75,80,85,90)
 agecut = c(18,  23.5, 34.5, 44.5, 54.5, 64.5, 74.5, 84)
 yearcut = c(seq(2000,2017,5),2017,2020,2025)
 
 covars2 = NULL
-## todo: make this a one-liner in tidyverse!
 for(i in 1:length(agecut)) {
   covars$midage = agecut[i]
   covars2 = rbind(covars2,covars)
@@ -47,14 +44,13 @@ for(i in 1:length(agecut)) {
 covars = covars2
 rm(covars2)
 
-covars = covars %>% mutate(#age1 = age1_func(midage),
-  #age2 = age2_func(midage),
+covars = covars %>% mutate(
   year = (midyear - 2011)/10,
   coverage = "national", 
   sex = 2,
   perurb = perurb / 100,
-  meanmalebmi_sc = scale(meanmalebmi),
-  meanfemalebmi_sc = scale(meanfemalebmi),
+  malebmi_sc = scale(malebmi),
+  femalebmi_sc = scale(femalebmi),
   national = as.numeric(coverage == 'national'),
   other = as.numeric(coverage == 'other'),
   regionname_china = ifelse(whoname == "China", "China", regionname),
@@ -128,8 +124,6 @@ for (i in 1:length(models)){
   } else {
     print('---- Predicting ... ----')
     
-    # preds_f = predict(mod, newdata=covars[sex == 2],se.fit=TRUE,type="response",allow.new.levels=TRUE)
-    # saveRDS(preds_f, file = paste0("tmp_files/preds_", models_names[i], ".rds"))
     preds_f = readRDS(file = paste0("tmp_files/preds_", models_names[i], ".rds"))
     
     covars$yhat = covars$lwr = covars$upr = 0
