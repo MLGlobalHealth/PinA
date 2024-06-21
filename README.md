@@ -38,5 +38,6 @@ This repository contains code for the publication "Title-placeholder" avilable a
 - **figures**: Stores generated figures.
 - **fits**: Includes `brms` fitting results.
 - **predictions**: Includes predictions from fitted models.
+- **results**: Includes results.
 - **src**: Source code for the project.
 - **tmp_files**: Temporary files generated during analysis.
