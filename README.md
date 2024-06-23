@@ -11,24 +11,29 @@ This repository contains code for the publication "Title-placeholder" avilable a
 ├── Stata
 │   ├── GPAQ_code_for_github.do
 │   ├── IPAQ_code_for_github.do
-│   └── stata.md
+│   └── readme.md
 ├── data
 │   ├── covariates.csv
-│   ├── data.md
-│   └── pina_dataset.csv
+│   ├── pina_dataset.csv
+│   └── readme.md
 ├── figures
-│   └── figures.md
+│   └── readme.md
 ├── fits
-│   └── fits.md
+│   ├── model_f.rds
+│   ├── model_m.rds
+│   └── readme.md
 ├── predictions
-│   └── predictions.md
+│   └── readme.md
+├── results
+│   ├── Strain et al 2024 country and region estimates - Github.xlsx
+│   └── readme.md
 ├── src
 │   ├── 01_brms.R
 │   ├── 02_draws.R
 │   ├── 03_make_fit_plots.R
-│   └── src.md
+│   └── readme.md
 └── tmp_files
-    └── tmp_files.md
+    └── readme.md    
 ```
 
 
