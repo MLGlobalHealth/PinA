@@ -3,8 +3,6 @@
 .RData
 .Ruserdata
 .DS_Store
-data/pina_dataset.csv
-data/covariates.csv
 fits/model_f.rds
 fits/model_m.rds
 predictions/draws_mod.csv
