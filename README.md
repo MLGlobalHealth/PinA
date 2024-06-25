@@ -1,8 +1,6 @@
 This repository contains code for the publication 
 
-"National, regional, and global trends in insufficient physical activity among adults from 2000 to 2022: a pooled analysis of 507 population-based surveys with 5·7 million participants"
-
-by Tessa Strain, Seth Flaxman, Regina Guthold, Elizaveta Semenova, Melanie Cowan, Leanne M Riley, Fiona C Bull, Gretchen A Stevens, and the Country Data Author Group,  
+"National, regional, and global trends in insufficient physical activity among adults from 2000 to 2022: a pooled analysis of 507 population-based surveys with 5·7 million participants" (*Lancet Global Health 2024*) by Tessa Strain, Seth Flaxman, Regina Guthold, Elizaveta Semenova, Melanie Cowan, Leanne M Riley, Fiona C Bull, Gretchen A Stevens, and the Country Data Author Group,  
 
 avilable at this [link](https://www.thelancet.com/journals/langlo/article/PIIS2214-109X(24)00150-5/fulltext).
 
