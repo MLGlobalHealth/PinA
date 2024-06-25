@@ -6,7 +6,6 @@
 fits/model_f.rds
 fits/model_m.rds
 predictions/draws_mod.csv
-predictions/preds_mod.csv
 tmp_files/draws_model_f.rds
 tmp_files/draws_model_m.rds
 tmp_files/preds_model_f.rds
